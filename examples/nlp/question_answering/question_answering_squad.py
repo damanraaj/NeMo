@@ -404,7 +404,7 @@ if __name__ == "__main__":
 
     if "train" in args.mode:
         logging.info(f"steps_per_epoch = {train_steps_per_epoch}")
-        callback_train = nemo_core.SimpleLossLoggerCallback(
+        train_callback = nemo_core.SimpleLossLoggerCallback(
             tensors=[train_loss],
             print_func=lambda x: logging.info("Loss: {:.3f}".format(x[0].item())),
             get_tb_values=lambda x: [["loss", x[0]]],
